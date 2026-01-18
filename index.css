@@ -1,0 +1,139 @@
+/* index.css — Base styles for Edu Track (dist copy)
+   Provides: reset, RTL support, container, simple utility fallbacks,
+   spinner animation, simple table and form defaults.
+*/
+:root{
+  --bg: #f8fafc;
+  --white: #ffffff;
+  --indigo-600: #4f46e5;
+  --indigo-50: #eef2ff;
+  --slate-50: #f8fafc;
+  --text: #0f172a;
+  --muted: #6b7280;
+  --border: #e6e7eb;
+}
+
+/* Box sizing + reset */
+*, *::before, *::after { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  font-family: 'Cairo', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  direction: rtl; /* default RTL for the app */
+}
+
+/* Simple centered container used across the app */
+.container {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Utility fallbacks */
+.hidden { display: none !important; }
+.block { display: block !important; }
+.flex { display: flex !important; }
+.flex-col { flex-direction: column !important; }
+.items-center { align-items: center !important; }
+.justify-center { justify-content: center !important; }
+.gap-4 { gap: 1rem !important; }
+.min-h-screen { min-height: 100vh !important; }
+.text-center { text-align: center !important; }
+.text-right { text-align: right !important; }
+.overflow-x-auto { overflow-x: auto !important; }
+
+/* Roundness and shadows */
+.rounded-2xl { border-radius: 1rem !important; }
+.rounded-3xl { border-radius: 1.5rem !important; }
+.rounded-xl { border-radius: 0.75rem !important; }
+.rounded-full { border-radius: 9999px !important; }
+.shadow-sm { box-shadow: 0 1px 2px rgba(15,23,42,0.04) !important; }
+.shadow-md { box-shadow: 0 6px 18px rgba(15,23,42,0.06) !important; }
+.shadow-lg { box-shadow: 0 12px 30px rgba(15,23,42,0.08) !important; }
+
+/* Borders */
+.border { border: 1px solid var(--border) !important; }
+.border-t { border-top: 1px solid var(--border) !important; }
+.border-b { border-bottom: 1px solid var(--border) !important; }
+
+/* Spacing helpers used in the app */
+.p-4 { padding: 1rem !important; }
+.p-3 { padding: 0.75rem !important; }
+.p-6 { padding: 1.5rem !important; }
+.py-4 { padding-top: 1rem !important; padding-bottom: 1rem !important; }
+.px-4 { padding-left: 1rem !important; padding-right: 1rem !important; }
+.mb-4 { margin-bottom: 1rem !important; }
+.mt-4 { margin-top: 1rem !important; }
+.mb-2 { margin-bottom: 0.5rem !important; }
+
+/* Colors */
+.bg-white { background: var(--white) !important; }
+.bg-indigo-50 { background: var(--indigo-50) !important; }
+.bg-gray-50 { background: #f9fafb !important; }
+.bg-indigo-600 { background: var(--indigo-600) !important; color: var(--white) !important; }
+.text-indigo-600 { color: var(--indigo-600) !important; }
+.text-gray-500 { color: var(--muted) !important; }
+.text-gray-400 { color: #9ca3af !important; }
+.text-gray-600 { color: #374151 !important; }
+
+/* Form controls defaults */
+input[type="text"], input[type="email"], input[type="password"], textarea, select {
+  border: 1px solid var(--border);
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  background: #fff;
+  outline: none;
+  font-size: 0.95rem;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+input:focus, textarea:focus, select:focus {
+  box-shadow: 0 0 0 6px rgba(79,70,229,0.06);
+  border-color: #6366f1;
+}
+
+/* Table defaults to match the dashboard tables */
+table { border-collapse: collapse; width: 100%; }
+th, td { padding: 0.75rem; text-align: right; }
+thead { background: #f8fafc; }
+
+/* Simple badge used for ratings */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.7rem;
+}
+.bg-blue-100 { background: #e6f0ff; color: #1e3a8a; }
+.bg-green-100 { background: #ecfdf5; color: #065f46; }
+.bg-yellow-100 { background: #fffbeb; color: #92400e; }
+.bg-red-100 { background: #fff1f2; color: #991b1b; }
+
+/* Spinner fallback animation used by Loading component */
+@keyframes spin { to { transform: rotate(360deg); } }
+.animate-spin { animation: spin 1s linear infinite !important; }
+
+/* Buttons default (keeps appearance consistent) */
+button { border: none; background: transparent; padding: 0.5rem 1rem; border-radius: 0.5rem; }
+button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* Small helpers */
+.text-xs { font-size: 0.75rem !important; }
+.text-sm { font-size: 0.9rem !important; }
+.font-bold { font-weight: 700 !important; }
+.font-black { font-weight: 900 !important; }
+
+/* Footer tweak */
+footer { background: var(--white); border-top: 1px solid var(--border); padding: 1rem 0; color: #6b7280; }
+
+/* Make sure code and pre blocks wrap properly */
+pre, code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace; }
